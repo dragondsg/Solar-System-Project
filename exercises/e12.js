@@ -5,7 +5,17 @@ import { data } from "../data/data";
 // Return example: 42
 
 export function allPlanetsMoonsCount(data) {
-  // Your code goes here...
+	let arr = data.planets.map(function (planet) {
+		return planet.moonsCount;
+	});
+	
+	return arr.reduce(function (total, num) {
+		if (isNaN(num)) {
+			return total + 0;
+		} else {
+			return total + num;
+		}
+	});
 }
 
 

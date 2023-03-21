@@ -5,8 +5,20 @@ import { data } from "../data/data";
 // Return example: 1902
 
 export function getGreatestDiscoveryYear(data) {
-  // Your code goes here...
-  // feel free to import your `maxBy` or `minBy` methods from previous lessons
+	let yearArray = data.asteroids.map(function (asteroid) {
+		return asteroid.discoveryYear;
+	});
+	
+	return yearArray.reduce(function (total, current) {
+		let length1 = yearArray.filter(function (num) {return num === total;}).length
+		let length2 = yearArray.filter(function (num) {return num === current;}).length
+		
+		if (length1 < length2) {
+			return current;
+		} else {
+			return total;
+		}
+	});
 }
 
 // === TEST YOURSELF ===
